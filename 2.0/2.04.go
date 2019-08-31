@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	x := 0
+	x := 1991
 	for {
-		if x == 13 {
+		if x > 2019 {
 			break
 		}
 		fmt.Println(x)
