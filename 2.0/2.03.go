@@ -3,11 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	x := 0
-	for x < 10 {
-		if x == 10 {
-			break
-		}
+	x := 1991
+	for x < 2019 {
 		fmt.Println(x)
 		x += 1
 	}
