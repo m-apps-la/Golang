@@ -1,14 +1,18 @@
 package main
 
 import (
-	"fmt"
-	"html"
+	"flag"
+	"log"
 	"net/http"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, `Hello World this is Mike's Golang RESTful API %q Route!`, html.EscapeString(r.URL.Path))
-	})
-	http.ListenAndServe(":8080", nil)
+	port := flag.String("p", "8080", "port to serve on")
+	directory := flag.String("d", ".", "the directory of static file to host")
+	flag.Parse()
+
+	http.Handle("/", http.FileServer(http.Dir(*directory ./mikes_personal_site)))
+
+	log.Printf("Serving %s on HTTP port: %s\n", *directory, *port)
+	log.Fatal(http.ListenAndServe(":"+*port, nil))
 }
