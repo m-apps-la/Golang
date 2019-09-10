@@ -5,20 +5,17 @@ import (
 )
 
 func main() {
-	foo()
-
 	c := make(chan int)
 
 	go func() {
 		c <- 42
 	}()
-	fmt.Println(<-c)
-}
 
-func foo() {
-	c := make(chan int, 1)
+	v, ok := <-c
+	fmt.Println(v, ok)
 
-	c <- 43
+	close(c)
 
-	fmt.Println(<-c)
+	v, ok = <-c
+	fmt.Println(v, ok)
 }
