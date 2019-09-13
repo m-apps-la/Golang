@@ -10,3 +10,4 @@
 - Nav and open "config.fish" ex: "~/.config/fish/config.fish". Now add and save this line to the file: `set -x GOBIN ~/go/bin`
 - Set fish PATH by running: `echo "set -gx PATH \$PATH ~/go/bin" >> ~/.config/fish/config.fish`
 
+[] Finished!!!
